@@ -5,12 +5,11 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # You can message lol_bot via <your website>/lol
-@app.route('/lol', methods=['POST'])
+@app.route('/lol', methods=['GET', 'POST'])
 def lol_bot():
     # Get the value of the 'text' query parameter
     # request.args is a dictionary (cool!)
-    # potentially change to request.values?
-    text = request.form.get('text')
+    text = request.values.get('text')
     return jsonify({
         'response_type': 'in_channel',
         'text': f'lol {text}',
