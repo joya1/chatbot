@@ -15,6 +15,18 @@ def lol_bot():
         'text': f'lol {text}',
     })
 
+@app.route('/alexa', methods=['POST', 'GET'])
+def alexa():
+  return jsonify({
+    'version': '0.1',
+    'response': {
+      'outputSpeech': {
+        'type': 'PlainText',
+        'text': 'Hello, welcome to my bot'
+      }
+    }
+  })    
+
 if __name__ == '__main__':
     # Start the web server!
     app.run()
